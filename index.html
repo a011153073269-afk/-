@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صالون التوب - صالون حلاقة شبابي فاخر</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* الأساسيات */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+        }
+        
+        :root {
+            --primary: #FF8800;
+            --primary-dark: #e67a00;
+            --secondary: #1a1a1a;
+            --light: #f8f8f8;
+            --text: #333333;
+            --white: #ffffff;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* الشريط العلوي */
+        header {
+            background: rgba(26, 26, 26, 0.9);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-left: 10px;
+        }
+        
+        .logo h1 {
+            color: var(--white);
+            font-size: 24px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-right: 25px;
+        }
+        
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        /* القسم الرئيسي */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+            z-index: 1;
+        }
+        
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: #e0e0e0;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: var(--primary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 18px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* قسم المميزات */
+        .features {
+            padding: 100px 0;
+            background: var(--light);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: #666;
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        .feature-card p {
+            color: #666;
+        }
+        
+        /* قسم الجودة */
+        .quality {
+            padding: 100px 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1599351431202-1e0f0137899a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover fixed;
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .quality-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .quality h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+        
+        .quality p {
+            font-size: 20px;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+        
+        /* قسم معلومات الاتصال */
+        .contact {
+            padding: 100px 0;
+            background: var(--secondary);
+            color: var(--white);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-left: 10px;
+            color: var(--primary);
+        }
+        
+        .working-hours {
+            margin-top: 30px;
+        }
+        
+        .working-hours h4 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .map {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 300px;
+            background: #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        .map i {
+            font-size: 50px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        /* الفوتر */
+        footer {
+            background: #111;
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .social-links {
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            color: var(--white);
+            margin: 0 10px;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            color: #aaa;
+            font-size: 14px;
+        }
+        
+        /* التجاوب مع الشاشات المختلفة */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px 10px;
+            }
+            
+            .hero h2 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الشريط العلوي -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="logo.png" alt="صالون التوب">
+                    <h1>صالون التوب</h1>
+                </div>
+                
+            </div>
+        </div>
+    </header>
+
+    <!-- القسم الرئيسي -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>💈 صالون التوب للحلاقة</h2>
+            <p>مش مجرد حلاقة ✂️ .. دي تجربة شبابية فخمة 👑</p>
+            <p>نقدم لك أفضل تجربة حلاقة مع خامات عالية الجودة وعمل دقيق</p>
+            <a href="booking.html" class="btn">احجز الآن</a>
+        </div>
+    </section>
+
+    <!-- قسم المميزات -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>لماذا تختار صالون التوب؟</h2>
+                <p>نقدم لك تجربة حلاقة استثنائية بمعايير عالمية</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>عملاء مميزون</h3>
+                    <p>نفخر بخدمة آلاف العملاء الراضين الذين يثقون بنا للحصول على أفضل مظهر. نحن نعتز بثقتهم ونعمل دائماً على تجاوز توقعاتهم.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛠️</div>
+                    <h3>أدوات ومعدات فاخرة</h3>
+                    <p>نستخدم أفضل الأدوات والمعدات العالمية من ماركات مرموقة لضمان تجربة حلاقة لا تُنسى. كل قطعة تم اختيارها بعناية فائقة.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📍</div>
+                    <h3>موقع متميز</h3>
+                    <p>مكاننا مصمم بعناية ليوفر لك أجواء من الاسترخاء والرفاهية. ديكور عصري ومساحة مريحة تجعل زيارتك تجربة استثنائية.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الجودة -->
+    <section class="quality" id="quality">
+        <div class="container">
+            <div class="quality-content">
+                <h2>جودة لا تضاهى</h2>
+                <p>في صالون التوب، نؤمن بأن التفاصيل الصغيرة هي التي تصنع الفارق الكبير. لذلك نستخدم فقط أفضل الخامات العالمية في جميع خدماتنا.</p>
+                <p>من منتجات العناية بالشعر واللحية المستوردة من أوروبا، إلى أدوات الحلاقة المعقمة ذات الجودة العالية، كل شيء في صالوننا يتم اختياره بعناية فائقة لضمان رضاك التام.</p>
+                <p>فريقنا من الحلاقين المحترفين مدربين على أحدث التقنيات والأساليب العصرية، مما يضمن لك الحصول على أفضل نتيجة تلبي توقعاتك وتتفوق عليها.</p>
+                <a href="#contact" class="btn">احجز موعدك الآن</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم معلومات الاتصال -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: var(--white);">اتصل بنا</h2>
+                <p style="color: #ccc;">نحن هنا لخدمتك في أي وقت</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>معلومات التواصل</h3>
+                    <p><i class="fas fa-phone"></i> 01152400023</p>
+                    <p><i class="fas fa-map-marker-alt"></i> العنوان: القاهرة - مدينة السلام - اسبيكو - شرع المزرعة</p>
+                    
+                    <div class="working-hours">
+                        <h4>أوقات العمل</h4>
+                        <p>نعمل طوال الأسبوع</p>
+                        <p>بداية من الساعة 2 ظهراً</p>
+                    </div>
+                </div>
+                
+                <div class="map">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <p>القاهرة - مدينة السلام</p>
+                    <p>اسبيكو - شرع المزرعة</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">
+                    <img src="logo.png" alt="صالون التوب">
+                    <h1>صالون التوب</h1>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <div class="copyright">
+                    <p>جميع الحقوق محفوظة &copy; 2023 صالون التوب</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // تأثير سلس للتمرير عند النقر على الروابط
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // إضافة تأثير للشريط العلوي عند التمرير
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(26, 26, 26, 0.95)';
+                header.style.padding = '10px 0';
+            } else {
+                header.style.background = 'rgba(26, 26, 26, 0.9)';
+                header.style.padding = '15px 0';
+            }
+        });
+    </script>
+</body>
+</html>
